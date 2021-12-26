@@ -4,7 +4,6 @@ import com.ehizman.scrumretroboard.data.enums.CommentType;
 import com.ehizman.scrumretroboard.data.model.Comment;
 import com.ehizman.scrumretroboard.exception.CommentNotFoundException;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

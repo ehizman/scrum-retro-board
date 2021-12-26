@@ -1,16 +1,15 @@
-package com.ehizman.scrumretroboard.comment;
+package com.ehizman.scrumretroboard.service;
 
 import com.ehizman.scrumretroboard.data.enums.CommentType;
 import com.ehizman.scrumretroboard.data.model.Comment;
 import com.ehizman.scrumretroboard.data.repository.CommentRepository;
-import com.ehizman.scrumretroboard.service.CommentServiceImpl;
+import com.ehizman.scrumretroboard.exception.CommentNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -22,7 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@DataJpaTest
 public class CommentServiceTest {
     @Mock
     private CommentRepository commentRepository;
@@ -31,7 +29,7 @@ public class CommentServiceTest {
 
     @Test
     @DisplayName(("test that all comments made today can be retrieved"))
-    void testCanGetAllCommentForToday(){
+    void testCanGetAllCommentForToday() throws CommentNotFoundException {
         Comment comment = new Comment();
         comment.setComment("Comment");
         comment.setCreatedDate(new Timestamp(System.currentTimeMillis()));

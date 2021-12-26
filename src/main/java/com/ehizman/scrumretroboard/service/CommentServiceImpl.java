@@ -2,6 +2,7 @@ package com.ehizman.scrumretroboard.service;
 
 import com.ehizman.scrumretroboard.data.model.Comment;
 import com.ehizman.scrumretroboard.data.repository.CommentRepository;
+import com.ehizman.scrumretroboard.exception.CommentNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +28,9 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public List<Comment> getAllCommentForToday() {
+    public List<Comment> getAllCommentForToday() throws CommentNotFoundException {
         LocalDate today = LocalDate.now();
         return commentRepository.findByCreatedYearAndMonthAndDay(today.getYear(), today.getMonthValue(), today.getDayOfMonth())
-                .orElseThrow(()-> new ClassCastException("comment not found"));
+                .orElseThrow(()-> new CommentNotFoundException("comment not found"));
     }
 }
