@@ -29,6 +29,7 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public List<Comment> getAllCommentForToday() {
         LocalDate today = LocalDate.now();
-        return commentRepository.findByCreatedYearAndMonthAndDay(today.getYear(), today.getMonthValue(), today.getDayOfMonth());
+        return commentRepository.findByCreatedYearAndMonthAndDay(today.getYear(), today.getMonthValue(), today.getDayOfMonth())
+                .orElseThrow(()-> new ClassCastException("comment not found"));
     }
 }

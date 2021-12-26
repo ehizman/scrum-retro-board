@@ -2,6 +2,7 @@ package com.ehizman.scrumretroboard.data.repository;
 
 import com.ehizman.scrumretroboard.data.enums.CommentType;
 import com.ehizman.scrumretroboard.data.model.Comment;
+import com.ehizman.scrumretroboard.exception.CommentNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -50,7 +50,7 @@ class CommentRepositoryTest {
 
     @Test
     @DisplayName("given the year value, month value and day value, findByCreatedYearAndMonthAndDay should return a comment")
-    void findByCreatedYearAndMonthAndDay(){
+    void findByCreatedYearAndMonthAndDay() throws CommentNotFoundException {
         Comment comment = new Comment();
         comment.setComment("Test");
         comment.setType(CommentType.PLUS);
@@ -61,7 +61,7 @@ class CommentRepositoryTest {
 
         LocalDate now = LocalDate.now();
         List<Comment> comments = commentRepository.findByCreatedYearAndMonthAndDay
-                (now.getYear(), now.getMonthValue(), now.getDayOfMonth());
+                (now.getYear(), now.getMonthValue(), now.getDayOfMonth()).orElseThrow(()-> new CommentNotFoundException("comment not found"));
 
         assertThat(comments).hasSize(1);
         assertThat(comments.get(0)).hasFieldOrPropertyWithValue("comment", "Test");
