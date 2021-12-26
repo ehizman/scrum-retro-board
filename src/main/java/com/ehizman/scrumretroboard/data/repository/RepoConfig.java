@@ -1,4 +1,4 @@
-package com.ehizman.scrumretroboard.data;
+package com.ehizman.scrumretroboard.data.repository;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

@@ -1,2 +1,7 @@
-package com.ehizman.scrumretroboard.data.enums;public class CommentType {
+package com.ehizman.scrumretroboard.data.enums;
+
+public enum CommentType {
+    PLUS,
+    DELTA,
+    STAR
 }
