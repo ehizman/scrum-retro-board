@@ -1,9 +1,11 @@
 package com.ehizman.scrumretroboard.controller;
 
+import com.ehizman.scrumretroboard.config.AuditAwareImpl;
 import com.ehizman.scrumretroboard.data.enums.CommentType;
 import com.ehizman.scrumretroboard.data.model.Comment;
 import com.ehizman.scrumretroboard.exception.CommentNotFoundException;
 import com.ehizman.scrumretroboard.service.CommentService;
+import com.ehizman.scrumretroboard.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,16 +25,18 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CommentController {
     private CommentService commentService;
+    private AuditAwareImpl auditAware;
 
     @Autowired
-    public CommentController(CommentService commentService) {
+    public CommentController(CommentService commentService, AuditAwareImpl auditAware) {
         this.commentService = commentService;
+        this.auditAware = auditAware;
     }
 
     @GetMapping
     public String index(Model model){
         model.addAttribute("time", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        List<Comment> comments = new ArrayList<>();
+        List<Comment> comments;
         try{
             comments = commentService.getAllCommentForToday();
         }
@@ -80,6 +84,7 @@ public class CommentController {
         Comment commentObject = new Comment();
         commentObject.setComment(comment);
         commentObject.setType(commentType);
+        commentObject.setCreatedBy(auditAware.getCurrentAuditor().orElse("Anonymous"));
         return commentObject;
     }
 }

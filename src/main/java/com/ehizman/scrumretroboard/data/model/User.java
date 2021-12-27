@@ -22,4 +22,9 @@ public class User {
     private String password;
 
     private String role;
+
+    @Override
+    public String toString(){
+        return String.format("id : %s%n, username : %s%n, role : %s", id, userName, role);
+    }
 }
