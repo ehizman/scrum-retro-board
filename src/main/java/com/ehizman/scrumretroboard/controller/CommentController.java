@@ -54,14 +54,20 @@ public class CommentController {
                                 @RequestParam(name = "starComment", required = false) String starComment,
                                 @RequestParam(name = "deltaComment", required = false) String deltaComment){
         List<Comment> comments = new ArrayList<>();
-        if (!plusComment.trim().equals("")){
-            comments.add(getComment(plusComment, CommentType.PLUS));
+        if(plusComment != null){
+            if (!plusComment.trim().equals("")){
+                comments.add(getComment(plusComment, CommentType.PLUS));
+            }
         }
-        if (!starComment.trim().equals("")){
-            comments.add(getComment(starComment, CommentType.STAR));
+        if(starComment != null){
+            if (!starComment.trim().equals("")){
+                comments.add(getComment(starComment, CommentType.STAR));
+            }
         }
-        if (!deltaComment.trim().equals("")){
-            comments.add(getComment(deltaComment, CommentType.DELTA));
+        if (deltaComment != null){
+            if (!deltaComment.trim().equals("")){
+                comments.add(getComment(deltaComment, CommentType.DELTA));
+            }
         }
 
         if (!comments.isEmpty()){
