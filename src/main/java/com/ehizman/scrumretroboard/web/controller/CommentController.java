@@ -1,4 +1,4 @@
-package com.ehizman.scrumretroboard.controller;
+package com.ehizman.scrumretroboard.web.controller;
 
 import com.ehizman.scrumretroboard.config.AuditAwareImpl;
 import com.ehizman.scrumretroboard.data.enums.CommentType;
@@ -33,7 +33,7 @@ public class CommentController {
         this.auditAware = auditAware;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String index(Model model){
         model.addAttribute("time", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         List<Comment> comments;

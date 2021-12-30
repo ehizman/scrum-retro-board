@@ -32,7 +32,7 @@ public class UserServiceTest {
         user.setRole("ROLE_USER");
 
         when(userRepository.save(user)).thenReturn(user);
-        userService.create(user);
+        userService.save(user);
         verify(userRepository, times(1)).save(user);
     }
 

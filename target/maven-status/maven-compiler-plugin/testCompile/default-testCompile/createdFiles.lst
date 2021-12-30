@@ -1,0 +1,6 @@
+com/ehizman/scrumretroboard/ScrumRetroBoardApplicationTests.class
+com/ehizman/scrumretroboard/data/repository/CommentRepositoryTest.class
+com/ehizman/scrumretroboard/controller/CommentControllerTest.class
+com/ehizman/scrumretroboard/service/UserServiceTest.class
+com/ehizman/scrumretroboard/service/CommentServiceTest.class
+com/ehizman/scrumretroboard/data/repository/UserRepositoryTest.class

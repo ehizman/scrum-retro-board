@@ -1,11 +1,8 @@
 package com.ehizman.scrumretroboard.config;
 
 import com.ehizman.scrumretroboard.data.model.User;
-import com.ehizman.scrumretroboard.data.repository.UserRepository;
 import com.ehizman.scrumretroboard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -15,31 +12,32 @@ import javax.transaction.Transactional;
 @Component
 public class DatabaseInit {
     private UserService userService;
-    private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public DatabaseInit(UserRepository userRepository, UserService userDetailsService, PasswordEncoder passwordEncoder) {
+    public DatabaseInit(UserService userDetailsService, PasswordEncoder passwordEncoder) {
         this.userService = userDetailsService;
-        this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct
     @Transactional
     public void loadUsers(){
-        User user1 = userService.create(new User(
-                null,
-                "Ehis Edemakhiota",
-                passwordEncoder.encode("password"),
-                "ROLE_USER")
-        );
-
-        User user2 = userService.create(new User(
-                null,
-                "Nosa Edemakhiota",
-                passwordEncoder.encode("password"),
-                "ROLE_USER")
-        );
+        if (userService.findUserByUsername("test-admin@gmail.com")==null){
+            userService.save(new User(
+                    null,
+                    "test-admin@gmail.com",
+                    passwordEncoder.encode("admin-password"),
+                    "ROLE_ADMIN")
+            );
+        }
+        if (userService.findUserByUsername("test-user@gmail.com")==null) {
+            userService.save(new User(
+                    null,
+                    "test-user@gmail.com",
+                    passwordEncoder.encode("password"),
+                    "ROLE_USER")
+            );
+        }
     }
 }

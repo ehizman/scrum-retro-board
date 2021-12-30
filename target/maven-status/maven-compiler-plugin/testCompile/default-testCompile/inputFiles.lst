@@ -1,0 +1,6 @@
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/ScrumRetroBoardApplicationTests.java
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/data/repository/UserRepositoryTest.java
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/service/CommentServiceTest.java
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/data/repository/CommentRepositoryTest.java
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/service/UserServiceTest.java
+/home/anina/IdeaProjects/scrum-retro-board/src/test/java/com/ehizman/scrumretroboard/controller/CommentControllerTest.java
