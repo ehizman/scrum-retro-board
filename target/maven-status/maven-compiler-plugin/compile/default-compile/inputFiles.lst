@@ -3,14 +3,15 @@
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/data/model/Comment.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/config/AuditAwareImpl.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/exception/CommentNotFoundException.java
+/home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/web/controller/CommentController.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/config/DatabaseInit.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/data/enums/CommentType.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/service/UserService.java
-/home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/controller/CommentController.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/service/CommentServiceImpl.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/data/repository/UserRepository.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/security/SecurityConfig.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/data/model/User.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/service/CommentService.java
+/home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/web/controller/UserController.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/data/repository/CommentRepository.java
 /home/anina/IdeaProjects/scrum-retro-board/src/main/java/com/ehizman/scrumretroboard/config/RepoConfig.java

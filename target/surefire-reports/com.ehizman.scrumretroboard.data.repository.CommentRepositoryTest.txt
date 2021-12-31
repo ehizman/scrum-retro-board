@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ehizman.scrumretroboard.data.repository.CommentRepositoryTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 s - in com.ehizman.scrumretroboard.data.repository.CommentRepositoryTest
